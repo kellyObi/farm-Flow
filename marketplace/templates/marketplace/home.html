@@ -1,0 +1,243 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farm Flow | Agricultural Marketplace</title>
+
+   <link rel="stylesheet" href="{% static 'marketplace/style.css' %}"> 
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav class="navbar">
+
+        <div class="logo">Farm<span>Flow.</span></div>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#categories">Categories</a>
+            <a href="#products">Products</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="#" class="login">Login</a>
+            <a href="#" class="signup">Get Started</a>
+        </div>
+
+    </nav>
+
+
+    <!-- HERO SECTION -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="welcome">WELCOME TO FARM FLOW</p>
+
+            <h1>
+                Fresh From The Farm,
+                <span>Straight To You.</span>
+            </h1>
+
+            <p>
+                Connecting farmers with buyers through a smarter
+                agricultural marketplace. Discover fresh produce,
+                support local farmers and make trading easier.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#products" class="explore-btn">
+                    Explore Products
+                </a>
+
+                <a href="#" class="farmer-btn">
+                    Join as a Farmer
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1000"
+                 alt="Beautiful farmland">
+
+        </div>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <section class="search-section">
+
+        <h2>What Are You Looking For?</h2>
+
+        <p>Find fresh agricultural products from local farmers.</p>
+
+        <form action="#products" method="get" class="search-box">
+
+            <input type="text" name="search"
+                   placeholder="Search for tomatoes, potatoes, cabbage...">
+
+            <button type="submit">Search</button>
+
+        </form>
+
+    </section>
+
+
+    <!-- CATEGORIES -->
+
+    <section class="categories" id="categories">
+
+        <div class="heading">
+            <p>EXPLORE OUR MARKETPLACE</p>
+            <h2>Shop By Category</h2>
+        </div>
+
+        <div class="category-grid">
+
+            <div class="category-card">
+                <div class="icon">🥬</div>
+                <h3>Vegetables</h3>
+                <p>Fresh farm vegetables</p>
+            </div>
+
+            <div class="category-card">
+                <div class="icon">🍎</div>
+                <h3>Fruits</h3>
+                <p>Healthy natural fruits</p>
+            </div>
+
+            <div class="category-card">
+                <div class="icon">🌽</div>
+                <h3>Grains</h3>
+                <p>Quality grains and cereals</p>
+            </div>
+
+            <div class="category-card">
+                <div class="icon">🥔</div>
+                <h3>Tubers</h3>
+                <p>Potatoes, yams and more</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+
+    <section class="products" id="products">
+
+        <div class="heading">
+            <p>FRESH FROM LOCAL FARMS</p>
+            <h2>Featured Products</h2>
+        </div>
+
+        <div class="product-grid">
+
+            {% for product in products %}
+
+            <div class="product-card">
+
+                <img src="{{ product.image }}" alt="{{ product.name }}">
+
+                <div class="product-info">
+
+                    <small>{{ product.category }}</small>
+
+                    <h3>{{ product.name }}</h3>
+
+                    <p>📍 {{ product.location }}</p>
+
+                    <div class="product-bottom">
+
+                        <strong>{{ product.price }}</strong>
+
+                        <a href="#" class="view-btn">View Product</a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <p>No products available yet.</p>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <div>
+            <p class="welcome">ABOUT FARM FLOW</p>
+
+            <h2>Growing Together, Trading Smarter.</h2>
+
+            <p>
+                Farm Flow is a digital agricultural marketplace designed
+                to bridge the gap between farmers and buyers.
+
+                Our goal is to give farmers better access to markets
+                while helping buyers discover quality agricultural
+                products conveniently.
+            </p>
+        </div>
+
+        <div class="about-box">
+
+            <h3>Why Farm Flow?</h3>
+
+            <p>✓ Connect directly with farmers.</p>
+            <p>✓ Discover fresh agricultural produce.</p>
+            <p>✓ Explore products from different locations.</p>
+            <p>✓ Make agricultural trading easier.</p>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer id="contact">
+
+        <div class="footer-logo">Farm<span>Flow.</span></div>
+
+        <p>Connecting farmers to better market opportunities.</p>
+
+        <p>Location: Cameroon</p>
+
+        <div class="copyright">
+            © 2026 Farm Flow. All Rights Reserved.
+        </div>
+
+    </footer>
+
+</body>
+</html>
