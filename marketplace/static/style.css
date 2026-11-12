@@ -282,3 +282,122 @@ footer {
     }
 }
 ```
+/* REGISTRATION PAGE */
+
+.register-container {
+    min-height: 100vh;
+    background: #eef7ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.register-box {
+    background: white;
+    width: 100%;
+    max-width: 480px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.register-logo {
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #145da0;
+    text-decoration: none;
+    margin-bottom: 25px;
+}
+
+.register-logo span {
+    color: #38a3e5;
+}
+
+.register-box h1 {
+    text-align: center;
+    color: #17324d;
+    margin-bottom: 10px;
+}
+
+.register-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.account-type {
+    background: #eef7ff;
+    color: #145da0;
+    padding: 13px;
+    text-align: center;
+    border-radius: 6px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.register-box form label {
+    display: block;
+    margin: 15px 0 7px;
+    font-weight: 600;
+    color: #333;
+}
+
+.register-box form input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    font-size: 15px;
+}
+
+.register-box form input:focus {
+    border-color: #145da0;
+}
+
+.register-submit {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    border: none;
+    background: #145da0;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.register-submit:hover {
+    background: #0d477c;
+}
+
+.login-text {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-text a,
+.back-home {
+    color: #145da0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-home {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-errors {
+    background: #ffeaea;
+    color: #b00020;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}

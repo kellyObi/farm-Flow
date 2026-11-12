@@ -1,6 +1,46 @@
 from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from .forms import RegistrationForm
+from .models import UserProfile
+def register(request, user_type):
 
+    if user_type not in ['farmer', 'buyer']:
+        return redirect('home')
 
+    if request.method == 'POST':
+
+        form = RegistrationForm(request.POST)
+
+        if form.is_valid():
+
+            user = form.save()
+
+            UserProfile.objects.create(
+                user=user,
+                user_type=user_type,
+                phone=form.cleaned_data['phone'],
+                location=form.cleaned_data['location']
+            )
+
+            messages.success(
+                request,
+                f"Your {user_type} account has been created successfully!"
+            )
+
+            return redirect('home')
+
+    else:
+        form = RegistrationForm()
+
+    return render(
+        request,
+        'marketplace/register.html',
+        {
+            'form': form,
+            'user_type': user_type
+        }
+    )
 def home(request):
 
     products = [

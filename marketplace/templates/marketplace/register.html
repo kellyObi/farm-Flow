@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Farm Flow | Register</title>
+
+    <link rel="stylesheet" href="{% static 'marketplace/style.css' %}">
+</head>
+
+<body>
+
+    <div class="register-container">
+
+        <div class="register-box">
+
+            <a href="/" class="register-logo">Farm<span>Flow</span></a>
+
+            <h1>Create Your Account</h1>
+
+            <p class="register-subtitle">
+                Join Farm Flow and connect with the agricultural community.
+            </p>
+
+            <div class="account-type">
+                {% if user_type == 'farmer' %}
+                    <span>🌱 Farmer Registration</span>
+                {% else %}
+                    <span>🛒 Buyer Registration</span>
+                {% endif %}
+            </div>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                {% if form.errors %}
+                    <div class="form-errors">
+                        Please correct the errors below.
+                        {{ form.errors }}
+                    </div>
+                {% endif %}
+
+                <label>Username</label>
+                {{ form.username }}
+
+                <label>Email Address</label>
+                {{ form.email }}
+
+                <label>Phone Number</label>
+                {{ form.phone }}
+
+                <label>Location</label>
+                {{ form.location }}
+
+                <label>Password</label>
+                {{ form.password1 }}
+
+                <label>Confirm Password</label>
+                {{ form.password2 }}
+
+                <button type="submit" class="register-submit">
+                    Create Account
+                </button>
+
+            </form>
+
+            <p class="login-text">
+                Already have an account?
+                <a href="#">Login</a>
+            </p>
+
+            <a href="/" class="back-home">← Back to Home</a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
